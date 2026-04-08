@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Preview</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="resume">
+
+<h1 id="rname"></h1>
+
+<p id="remail"></p>
+
+<p id="rphone"></p>
+
+<h3>Skills</h3>
+<p id="rskills"></p>
+
+</div>
+
+<script>
+
+document.getElementById("rname").innerHTML =
+localStorage.getItem("name");
+
+document.getElementById("remail").innerHTML =
+localStorage.getItem("email");
+
+document.getElementById("rphone").innerHTML =
+localStorage.getItem("phone");
+
+document.getElementById("rskills").innerHTML =
+localStorage.getItem("skills");
+
+</script>
+
+</body>
+</html>

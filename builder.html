@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>resume</title>
+  <link rel="stylesheet" href="builderstyle.css">
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 10px;
+      position: relative;
+      
+    }
+
+    .form-section {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0000001a;
+      width: 300px;
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      height: auto;
+    }
+
+    /* Resume preview styles */
+    .resume {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #0000001a;
+      width: 794px;
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      height: 1123px;
+      display: flex;
+      
+    }
+
+    .left {
+      width: 30%;
+      color: #fff;
+      padding: 20px;
+      background-color: #2f03b6;
+    }
+
+    .profileImage {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: auto;
+      background-color: grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profileImage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .abouteducation {
+      width: 100%;
+      height: auto;
+
+    }
+    .abouteducation div {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+    .contact {
+  margin-top: 30px;
+  color: white;
+}
+
+.contact h1 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ffffff50;
+  padding-bottom: 5px;
+}
+
+.contact div {
+  font-size: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  word-break: break-word;
+}
+/* Right side styles */
+.right {
+  width: 70%;
+  padding: 30px;
+  background-color: #fafafa;
+}
+
+/* Name Heading */
+.right h1 {
+  font-size: 30px;
+  margin-bottom: 25px;
+  color: #2f03b6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Card Style */
+.card {
+  background: #ffffff;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+/* Hover Effect */
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Section Heading */
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #2f03b6;
+  border-left: 4px solid #2f03b6;
+  padding-left: 10px;
+}
+
+/* Content */
+.card p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444;
+}
+#title {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+    /* QR Code Section */
+    #payment-section {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    #qrCode {
+      width: 150px;
+      margin: 10px auto;
+      display: none;
+    }
+
+    #downloadBtn {
+      background-color: green;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+      margin-top: 10px;
+    }
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!--Form Side-->
+    <div class="form-section">
+      <h2>Fill resume</h2>
+      <input type="text" placeholder="Name" oninput="update('name',this.value)"><br><br>
+      <input type="email" placeholder="Email" oninput="update('email',this.value)"><br><br>
+      <input type="tel" placeholder="Phone" oninput="update('phone',this.value)"><br> <br>
+      <input type="text" placeholder="Address" oninput="update('address',this.value)"><br><br>
+      <input type="text" placeholder="Professional Title" oninput="update('title',this.value)"><br><br>
+
+<textarea placeholder="About Me" oninput="update('aboutMe',this.value)"></textarea><br><br>
+
+<input type="text" placeholder="Languages" oninput="update('language',this.value)"><br><br>
+
+      <input type="text" placeholder="Education 1" oninput="update('education1',this.value)"><br><br>
+      <input type="text" placeholder="Education 2" oninput="update('education2',this.value)"><br><br>
+      <input type="text" placeholder="Education 3" oninput="update('education3',this.value)"><br><br>
+      <input type="text" placeholder="Education 4" oninput="update('education4',this.value)">
+      <br><br>
+      <input type="text" placeholder="Experience" oninput="update('experience',this.value)"><br><br>
+      <input type="text" placeholder="Skills" oninput="update('skills',this.value)"><br><br>
+      <textarea placeholder="Profile" oninput="update('profile',this.value)"></textarea><br><br>
+      <!--Image upload-->
+      Upload Image<br><br>
+      <input type="file" id="imageUpload" accept="image/*" onchange="uploadImage(event)"><br><br>
+
+    
+   <!-- Payment Section -->
+      <!-- Payment Section -->
+<div id="payment-section">
+ <button id="payBtn" onclick="showQR()">Pay ₹10 to Download</button>
+
+
+  <img id="qrCode"
+    src="qrcode.png"
+    alt="QR Code"
+    style="width:150px; display:none; margin-top:10px;">
+
+  <button id="verifyBtn" style="display:none;" onclick="verifyPayment()">
+    Enter Payment Code
+  </button>
+
+  <button id="downloadBtn" style="display:none;" onclick="downloadResume()">
+    Download Resume
+  </button>
+</div>
+
+</div>
+  <!--REsume Preview-->
+  <div class="resume" id="resume">
+
+    <!--left side-->
+
+    <div class="left">
+      <div class="profileImage">
+        <img id="imagepreview" src="" alt="Profile Image">
+      </div><br><br>
+      <section class="abouteducation">
+        <h1><u>Education</u></h1>
+        <div id="education1">education1</div><br>
+        <div id="education2">education2</div><br>
+        <div id="education3">education3</div><br>
+        <div id="education4">education4</div><br>
+      </section>
+      <!--contact details-->
+      <section class="contact">
+        <h1><u>Contact</u></h1>
+        <div id="email">email </div><br>
+        <div id="phone">phone</div><br>
+        <div id="address">address</div><br>
+      </section>
+    </div>
+    <!--right side-->
+  
+
+<!-- Right Side -->
+<div class="right">
+
+  <h1 id="name"><u>Your Name</u></h1>
+  <h3 id="title">professional Title</h3>
+   <div class="card">
+    <h3>About Me</h3>
+    <p id="aboutMe"></p>
+  </div>
+
+  <div class="card">
+    <h3>Profile</h3>
+    <p id="profile"></p>
+  </div>
+
+  <div class="card">
+    <h3>Experience</h3>
+    <p id="experience"></p>
+  </div>
+
+  <div class="card">
+    <h3>Skills</h3>
+    <p id="skills"></p>
+  </div>
+   <div class="card">
+    <h3>Languages</h3>
+    <p id="language"></p>
+  </div>
+
+
+
+</div>
+ 
+
+  </div>
+  
+  <!--script work for image upload-->
+   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function uploadImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        document.getElementById('imagepreview').src = URL.createObjectURL(file);
+      }
+    }
+
+    function update(id, value) {
+      document.getElementById(id).innerText = value || id;
+    }
+
+    function showQR() {
+  document.getElementById('qrCode').style.display = 'block';
+  document.getElementById('confirmBtn').style.display = 'block';
+  alert("Scan the QR code and pay. After payment, click 'I Paid' to enable download.");
+}
+
+// Only enable download after user clicks "I Paid"
+let isPaid = false;
+
+// Show QR
+function showQR() {
+  document.getElementById('qrCode').style.display = 'block';
+  document.getElementById('verifyBtn').style.display = 'block';
+
+  alert("Pay ₹10 by scanning QR, then click 'Enter Payment Code'.");
+}
+
+
+// Verify Payment (basic security)
+function verifyPayment() {
+  let code = prompt("Enter payment code:");
+  isPaid = false;
+
+  // 👉 Yahan tum apna secret code daalo
+  if (code === "PAY123") {
+    isPaid = true;
+    document.getElementById('downloadBtn').style.display = 'block';
+    alert("Payment verified! Now you can download.");
+  } else {
+    alert("Wrong code! Payment not verified.");
+  }
+}
+
+// Download
+function downloadResume() {
+  if (!isPaid) {
+    alert("Please complete payment first!");
+    return;
+  }
+
+  html2canvas(document.getElementById('resume')).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'resume.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+}
+
+
+  </script>
+</body>
+
+</html>
