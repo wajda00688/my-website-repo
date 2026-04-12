@@ -64,6 +64,14 @@ border-radius:4px;
     align-items:center;
   }
 
+  .form-container{
+    order: 1;  /* form pehle */
+  }
+
+  .resume{
+    order: 2;  /* resume baad me */
+  }
+
   .form-container,
   .resume{
     width:100%;
@@ -78,3 +86,4 @@ border-radius:4px;
     width:100%;
   }
 }
+
