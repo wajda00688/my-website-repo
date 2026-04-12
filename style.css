@@ -1,3 +1,7 @@
+*{
+  box-sizing:border-box;
+}
+
 body{
 font-family: Arial;
 background:#f2f2f2;
@@ -12,6 +16,7 @@ padding:0;
   gap:20px;
   padding:20px;
   margin-top:20px;
+  flex-wrap:wrap;   /* 🔥 IMPORTANT */
 }
 
 
@@ -35,10 +40,11 @@ background:#0056b3;
 }
 
 .form-container{
-  width:100%;
+  flex:1;
+  min-width:300px;
   max-width:400px;
-  margin:0;
 }
+
 
 
 input, textarea{
@@ -51,10 +57,11 @@ border-radius:4px;
 }
 
 .resume{
-  width:100%;
+  flex:1;
+  min-width:300px;
   max-width:600px;
-  margin:0;
 }
+
 
 
 @media(max-width:768px){
@@ -64,26 +71,17 @@ border-radius:4px;
     align-items:center;
   }
 
-  .form-container{
-    order: 1;  /* form pehle */
-  }
-
-  .resume{
-    order: 2;  /* resume baad me */
-  }
-
   .form-container,
   .resume{
     width:100%;
     max-width:100%;
   }
 
-  h1{
-    font-size:20px;
-  }
-
   button{
     width:100%;
   }
-}
 
+  h1{
+    font-size:20px;
+  }
+}
