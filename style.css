@@ -64,24 +64,23 @@ border-radius:4px;
 
 
 
-@media(max-width:768px){
+@media (max-width:768px){
 
   .container{
-    flex-direction:column;
-    align-items:center;
+    flex-direction: column;   /* 🔥 MAIN FIX */
+    align-items: center;
   }
 
-  .form-container,
-  .resume{
+  .form-section{
     width:100%;
     max-width:100%;
   }
 
-  button{
+  .resume{
     width:100%;
+    max-width:100%;
+    height:auto;   /* 🔥 IMPORTANT */
   }
 
-  h1{
-    font-size:20px;
-  }
 }
+
