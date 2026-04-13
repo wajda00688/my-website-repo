@@ -3,72 +3,116 @@
 }
 
 body{
-font-family: Arial;
-background:#f2f2f2;
-margin:0;
-padding:0;
+  font-family: Arial, sans-serif;
+  background:#f2f2f2;
+  margin:0;
+  padding:0;
 }
 
+/* MAIN LAYOUT */
 .container{
   display:flex;
-  justify-content:center;
-  align-items:flex-start;
   gap:20px;
   padding:20px;
-  margin-top:20px;
-  flex-wrap:wrap;   /* 🔥 IMPORTANT */
+  align-items:flex-start;
 }
 
-
-
-h1{
-color:#333;
-}
-
-button{
-padding:12px 25px;
-background:#007BFF;
-color:white;
-border:none;
-border-radius:5px;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-background:#0056b3;
-}
-
-.form-container{
+/* FORM (LEFT SIDE) */
+.form-section{
   flex:1;
   min-width:300px;
   max-width:400px;
+  background:#fff;
+  padding:20px;
+  border-radius:8px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
 
-
-
-input, textarea{
-width:100%;
-padding:10px;
-margin-top:10px;
-margin-bottom:15px;
-border:1px solid #ccc;
-border-radius:4px;
+/* RESUME (RIGHT SIDE - A4 LOOK) */
+.resume-wrapper{
+  flex:2;
+  display:flex;
+  justify-content:center;
+  overflow-x:auto;
 }
 
 .resume{
-  flex:1;
-  min-width:300px;
-  max-width:600px;
+  width:210mm;
+  min-height:297mm;
+  background:#fff;
+  display:flex;
+  box-shadow:0 0 10px rgba(0,0,0,0.15);
 }
 
+/* LEFT PART OF RESUME */
+.left{
+  width:30%;
+  background:#2f03b6;
+  color:#fff;
+  padding:20px;
+  text-align:center;
+}
 
+/* RIGHT PART OF RESUME */
+.right{
+  width:70%;
+  padding:30px;
+  background:#fafafa;
+}
 
+/* PROFILE IMAGE */
+.profileImage{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:auto;
+  background:grey;
+}
+
+.profileImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CARDS */
+.card{
+  background:#fff;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* INPUTS */
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0 15px;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+
+/* BUTTON */
+button{
+  padding:12px 25px;
+  background:#007BFF;
+  color:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0056b3;
+}
+
+/* ================= MOBILE VIEW ================= */
 @media (max-width:768px){
 
   .container{
-    flex-direction: column;   /* 🔥 MAIN FIX */
-    align-items: center;
+    flex-direction:column;
   }
 
   .form-section{
@@ -76,11 +120,20 @@ border-radius:4px;
     max-width:100%;
   }
 
-  .resume{
+  .resume-wrapper{
     width:100%;
-    max-width:100%;
-    height:auto;   /* 🔥 IMPORTANT */
   }
 
-}
+  .resume{
+    width:100%;
+    min-height: auto; /* 🔥 important */
+  }
+
+  .resume .left{
+    width:100%;
+    min-width: auto;
+  }
+
+  }
+
 

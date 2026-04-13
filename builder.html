@@ -12,9 +12,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      
       font-size: 10px;
       position: relative;
       
@@ -27,31 +25,25 @@
       box-shadow: 0 0 10px #0000001a;
       width: 300px;
       
-      left: 20px;
-      top: 10px;
+      
       height: auto;
     }
 
     /* Resume preview styles */
-    .resume {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #0000001a;
-      width: 794px;
-      
-      right: 20px;
-      top: 10px;
-      height: 1123px;
-      display: flex;
-      
-    }
+   .resume {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  display: flex;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
 
     .left {
       width: 30%;
       color: #fff;
       padding: 20px;
       background-color: #2f03b6;
+      text-align: center;
     }
 
     .profileImage {
@@ -175,6 +167,13 @@
       display: none;
       margin-top: 10px;
     }
+    /* ===== A4 FIXED DESIGN ===== */
+.resume-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;   /* mobile scroll allow */
+}
 
 
 
@@ -233,6 +232,7 @@
 
 </div>
   <!--REsume Preview-->
+  <div class="resume-wrapper">
   <div class="resume" id="resume">
 
     <!--left side-->
@@ -293,7 +293,7 @@
 </div>
  
 
-  </div>
+  </div></div>
   
   <!--script work for image upload-->
    <!-- Scripts -->
